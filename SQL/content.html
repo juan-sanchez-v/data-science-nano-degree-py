@@ -1,0 +1,200 @@
+<h3>FAQ</h3> 
+ <br>
+<p> <strong> Do you have multiple locations? Can I order from either location? </strong><br> 
+Hart Davis Hart Wine Co. (“HDH”) sells retail wine in Portland, Oregon, and Chicago, Illinois.  You may place orders from either location.  All wine offered for sale through https://shop.hdhwine.com/ will be fulfilled through our Portland, OR, warehouse.  All wine offered for sale through https://hdhwine.com/retail/ will be fulfilled through our Chicago, IL, warehouse.  Please contact sales@hdhwine.com with any questions.
+</p>
+<p> <strong> I am a long time HDH buyer. Do I need to create a new account for shop.hdhwine.com? </strong><br> 
+Yes. Please contact sales@hdhwine.com if you need assistance. You will also need to update your credit card information if you would like to keep one on file.
+</p>
+<p>
+<strong> Does HDH ship wine domestically? </strong><br> 
+HDH does not ship wine domestically.  Wine purchased from our Chicago location must be collected at 1511 W 38th St. by you or an agent designated by you to collect your wine on your behalf.  Wine purchased from our Portland, OR, location, will be delivered to/collected by Portland Wine Storage, Inc. (“PWS”), 306 SE Ash Street, Portland, Oregon 97214, as your agent per the terms and conditions of sale related to the purchase of wines through our Oregon location.  
+</p>
+<p>
+<strong> Can I combine orders from both HDH locations? </strong><br> 
+Unfortunately, we are not able to combine orders from different warehouses; you will have to arrange separate pickups for wines at each location.
+</p>
+<p>
+<strong> Can HDH ship internationally? </strong><br> 
+HDH will be happy to assist international buyers with shipments outside of the United States.  Please contact customer service at customerservice@hdhwine.com
+</p>
+<p>
+<strong> Do I owe sales tax for my purchase? </strong><br> 
+For HDH Chicago wines, HDH is required to collect 10.25% sales tax on all domestic orders. For HDH Portland wines, HDH is not required to collect sales tax on domestic orders. For more tax information, please consult with your accountant or tax attorney as HDH does not provide any tax advice.
+</p>
+<p>
+<strong> Who is PWS? </strong><br> 
+Portland Wine Storage is an industry leader in wine storage and logistics. 
+</p>
+<p>
+<strong> How will I know when my pre-arrival wines are in-stock? </strong> <br> 
+Once your completed pre-arrival or futures order is collected by/delivered to PWS, you will receive an email notification. Once received by PWS, your orders will be available for you or your agent to pick up.
+</p>
+<p>
+<strong> How long will you store my wine for free? </strong><br> 
+Once your HDH Portland order is transferred to PWS, you will have 30 days of free storage. PWS will collect storage fees for any orders not picked up within that timeframe.  
+At HDH Chicago, you will have 30 days of free storage. HDH will collect storage fees for any orders not picked up within that timeframe.
+</p>
+<p>
+<strong> Who can I contact with further questions? </strong> <br> 
+All shipping and handling questions: Portland Wine Storage - info@portlandwine.com <br> 
+All wine questions or recommendations: Retail Sales Department - sales@hdhwine.com <br> 
+Questions regarding payment: Accounting - accounting@hdhwine.com <br> 
+Everything else: Customer Service - customerservice@hdhwine.com <br> 
+</p>
+
+
+
+
+
+
+
+<html><head></head><body style="color: #4d5256; font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif; font-size: 14px; margin: auto; padding: 27px 0 13px 0; width: 600px;">
+    <div>&nbsp;
+    <div>
+    <table border="0" cellpadding="0" cellspacing="0" style="font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif;" width="100%">
+    <tbody>
+        <tr>
+        <td style="vertical-align: bottom;">
+        <div style="font-size: 14px; font-weight: 600;">Dear&nbsp;${entity.salutation}&nbsp;<#if customer.isPerson == "T" && ( (customer.firstName)?has_content || (customer.lastName)?has_content )>${customer.firstName}<#elseif customer.isPerson == "F" && (customer.companyName)?has_content>${customer.companyName}<#else>${preferences.naming_customer}</#if>,<br />
+        &nbsp;</div>
+    
+        <div><span style="font-size:12pt"><span style="vertical-align:baseline"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-family:&quot;Calibri&quot;,sans-serif">Thank you for placing your order with Hart Davis Hart Wine Co. (HDH).<br />
+        <br />
+        You will receive an email notification once your order is transferred to Portland Wine Storage (PWS), your agent. Please allow two (2) business days&rsquo; processing time from the date PWS receives your order for it to be available for pickup or shipment.&nbsp; At that time, you may pick up your order from their warehouse <strong>(306 SE Ash St., Portland, OR 97214)</strong> or have it shipped on your behalf.&nbsp; HDH does not ship wine domestically. International clients will be contacted by an HDH representative to arrange delivery.<br />
+        <br />
+        Once your order is delivered to PWS, you have 30 days of free storage. After 30 days, PWS will bill storage charges of $5/case per month. Long-term storage options are available with PWS.</span>&nbsp;</span></span></span><br />
+        <br />
+        <span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><b>PRE-ARRIVAL/FUTURES:</b> For pre-arrival and futures orders, you will receive an email notification once your order has been received in full at our Portland warehouse and transferred to PWS.&nbsp;</span></span></div>
+        </td>
+        </tr>
+        <tr>
+        <td style="vertical-align: top;">&nbsp;</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    
+    <div style="margin-top: 30px; width: 100%;">
+    <div style="margin-top: 20px;">
+    <div style="font-size: 16px; font-weight: 600; line-height: 24px; padding-bottom: 10px;">Order Summary</div>
+    
+    <table border="0" cellpadding="0" cellspacing="0" style="font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif; vertical-align: top; width: 100%;"><#list salesorder.item as itemline>
+    <tbody>
+        <tr><#if itemline.itemType == "Discount">
+        <td>&nbsp;</td>
+        <td style="font-size: 12px; vertical-align: top;">
+        <div><span style="color: #81878c; text-align: left;">Coupon code applied:</span><span style="padding-left: 5px;">${itemline.amount}</span></div>
+        </td>
+        </#if>
+        <td style="padding-top: 10px; width: 413.797px;">
+        <div><span style="font-size: 14px; line-height: 16px;">${itemline.item}</span></div>
+        <#if (itemline.options)?has_content><#assign br = "<br />"><#list (itemline.options)?split(br) as option><#assign label=option?substring(0,option?index_of(":")) value=(option?substring(option?index_of(":")+1))?trim>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">${label}:</span><span style="padding-left: 5px;">${value}</span></div>
+        </#list></#if><#if (itemline.giftCertRecipientEmail)?has_content>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">Recipient Email:</span><span style="padding-left: 5px;">${itemline.giftCertRecipientEmail}</span></div>
+        </#if><#if (itemline.giftCertFrom)?has_content>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">From:</span><span style="padding-left: 5px;">${itemline.giftCertFrom}</span></div>
+        </#if><#if (itemline.giftCertMessage)?has_content>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">Gift Message:</span><span style="padding-left: 5px;">${itemline.giftCertMessage}</span></div>
+        </#if><#if (itemline.giftCertRecipientName)?has_content>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">Recipient Name:</span><span style="padding-left: 5px;">${itemline.giftCertRecipientName}</span><br />
+        </#if> <#if (itemline.custcol_frm_item_stocktype)?has_content>
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">Stock Type:</span><em><span style="padding-left: 5px;">${itemline.custcol_frm_item_stocktype}</span></em></div>
+        </#if>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">Quantity:</span><span style="padding-left: 5px;">${itemline.quantity}</span></div>
+    
+        <div style="font-size: 12px;"><span style="color: #81878c; text-align: left;">1 each:</span><span style="padding-left: 5px;">${itemline.rate}</span></div>
+        </div>
+        </td>
+        <td style="text-align: right; padding-top:10px;"><span style="color: #4d5256; font-size: 14px; font-weight: 600;">${itemline.amount}</span></td>
+        </#if></tr>
+        </#list>
+    </tbody>
+    </table>
+    
+    <hr color="#d7f1fa" style="color: #d7f1fa;" />
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+        <td align="right">
+        <div style="text-align: left;">&nbsp;</div>
+    
+        <table border="0" cellpadding="0" cellspacing="0" style="font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif; line-height: 16px; margin: 7px 0; width: auto;">
+        <tbody>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">Subtotal</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; vertical-align: top;">${salesorder.subTotal}</span></td>
+            </tr>
+            <#if (salesorder.shippingCost)?has_content>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">Shipping</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; vertical-align: top;">${salesorder.shippingCost}</span></td>
+            </tr>
+            </#if><#if (salesorder.taxTotal)?has_content>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">Tax</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; vertical-align: top;">$0.00</span></td>
+            </tr>
+            </#if><#if (salesorder.tax2total)??><#if (salesorder.tax2total)?has_content>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">Tax2</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; vertical-align: top;">${salesorder.tax2total}</span></td>
+            </tr>
+            </#if></#if><#if (salesorder.giftCertRedemption)?has_content><#list (salesorder.giftCertRedemption) as giftCert>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">Gift Certificate ${giftCert.authCode} (Balance:${giftCert.authCodeAmtRemaining})</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; vertical-align: top;">(${giftCert.authCodeApplied})</span></td>
+            </tr>
+            </#list></#if>
+            <tr>
+            <td style="padding: 0 20px 0 0;"><span style="color: #81878c; font-size: 12px; text-align: left;">TOTAL</span></td>
+            <td style="text-align: right;"><span style="color: #4d5256; font-size: 14px; font-weight: 600; vertical-align: top;">${salesorder.total}</span></td>
+            </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+    
+    <hr color="#d7f1fa" style="color: #d7f1fa;" />
+    <div>
+        <#if (salesorder.shipAddress)?has_content || (salesorder.shipMethod)?has_content>
+    <div style="margin: 17px 0;">
+    <div>&nbsp;
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+    <tbody>
+        <tr>
+        <td><span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">You may log in to your online account at </span></span><span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif"><a href="http://www.shop.hdhwine.com/" target="_blank"><span style="color:blue"><span style="text-decoration:none"><span style="text-underline:none">www.shop.hdhwine.com</span></span></span></a> to track the status of your order on the <a href="https://shop.hdhwine.com/scs/my_account.ssp?fragment=overview#/purchases" target="_blank"><span style="color:blue"><span style="text-decoration:none"><span style="text-underline:none">Purchase History</span></span></span></a> page.&nbsp;</span></span><br />
+        <br />
+        <span style="font-size:12pt"><span style="vertical-align:baseline"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-family:&quot;Calibri&quot;,sans-serif">Thank you,</span>&nbsp;</span></span></span><br />
+        <br />
+        <span style="font-size:12pt"><span style="vertical-align:baseline"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-family:&quot;Calibri&quot;,sans-serif">Hart Davis Hart Wine Co.</span>&nbsp;</span></span></span><br />
+        <span style="font-size:12pt"><span style="vertical-align:baseline"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-family:&quot;Calibri&quot;,sans-serif">312.482.9996</span>&nbsp;</span></span></span><br />
+        <span style="font-size:12pt"><span style="vertical-align:baseline"><span style="font-family:&quot;Times New Roman&quot;,serif"><a href="mailto:sales@hdhwine.com" target="_blank"><span style="font-family:&quot;Calibri&quot;,sans-serif"><span style="color:blue"><span style="text-decoration:none"><span style="text-underline:none">sales@hdhwine.com</span></span></span></span></a>&nbsp;</span></span></span><br />
+        <br />
+        &nbsp;</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    
+    <div style="font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; margin: 6px 0 0 0;">&nbsp;</div>
+    </div>
+    </#if></div>
+    
+    <hr color="#d7f1fa" style="color:#d7f1fa;" /></div>
+    </div>
+    
+    <div><#if (website.customerCenterUrl)?has_content>
+    <div style="text-align: center;"><span style="font-family: Open Sans, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;">You can <a href="${website.customerCenterUrl}" style="color: #087ca6; font-weight: 600; text-decoration: none;">log in</a> to see your order status.</span></div>
+    </#if></div>
+    </div>
+    </body></html>
