@@ -1,10 +1,12 @@
 -- Subquery
 -- Use subqueries when you have the need to manipulate an existing table to sudo-create a table that is then used as part of a larger query.
 -- With example
-WITH subquery_name (column_name1,...) AS (
-  SELECT...
-)
-SELECT...-- Inline example
+--WITH subquery_name (column_name1,...) AS (
+--  SELECT...
+--)
+--SELECT...
+
+-- Inline example
 SELECT student_name
 FROM (
     SELECT student_id,
@@ -12,8 +14,9 @@ FROM (
       grade
     FROM student
     WHERE teacher = 10
-  )
-WHERE grade > 80;
+  ) d
+WHERE d.grade > 80;
+
 -- Nested example
 SELECT s.s_id,
   s.s_name,
