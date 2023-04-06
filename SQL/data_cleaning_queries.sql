@@ -113,7 +113,9 @@ Select a.name client_name,
 From accounts a;
 -- Converting data to different format function
 -- Cast
-Cast(columnname as datatype) Cast(salary as int) -- SPLIT
+Cast(columnname as datatype) Cast(salary as int) 
+
+-- SPLIT
 String_split(columnname, ',') 
 
 -- ---------------- Advanced Cleaning functions ----------------------
