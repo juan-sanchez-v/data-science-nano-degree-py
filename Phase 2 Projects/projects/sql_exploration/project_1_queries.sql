@@ -5,6 +5,7 @@ Date: 		04-05-2023
 
 Question # 1:
 
+
 */
 
 -- film_details table Joins the film_category and film table to get a list of all the films and their category
