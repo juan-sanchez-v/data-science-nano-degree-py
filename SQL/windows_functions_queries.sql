@@ -34,8 +34,6 @@ SELECT order_id,
     ) AS average_monthly_price
 FROM amazon_sales_db
 WHERE order_date < '2017-01-01';
-
-
 SELECT id,
     account_id,
     standard_qty,
@@ -64,14 +62,10 @@ SELECT id,
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('month', occurred_at)
     ) AS max_standard_qty
-FROM orders
-
- -- The ORDER BY clause is one of two clauses integral to window functions. The ORDER and PARTITION define what is referred to as the “window”
- -- The ordered subset of data over which calculations are made.
+FROM orders -- The ORDER BY clause is one of two clauses integral to window functions. The ORDER and PARTITION define what is referred to as the “window”
+    -- The ordered subset of data over which calculations are made.
     --------------- Ranking Window Functions ---------------
-    Row_number(): 
-    
--- Distinct #s for each records.
+    Row_number(): -- Distinct #s for each records.
 Select ROW_Number() Over (
         Order by date_time
     ) as rank,
@@ -98,8 +92,7 @@ SELECT order_id,
     COUNT(order_id) OVER monthly_window AS running_monthly orders,
     AVG(order_price) OVER monthly_window AS average_monthly_price
 FROM amazon_sales_db
-WHERE order_date < '2017-01-01' 
-WINDOW monthly_window AS (
+WHERE order_date < '2017-01-01' WINDOW monthly_window AS (
         PARTITION BY month(order_date)
         ORDER BY order_date
     );
@@ -115,7 +108,7 @@ SELECT id,
     SUM(total_amt_usd) OVER (
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('year', occurred_at)
-    ) AS sum_total_amt_usd,
+    ) AS sum_total_amt_usd,`
     COUNT(total_amt_usd) OVER (
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('year', occurred_at)
@@ -134,6 +127,7 @@ SELECT id,
     ) AS max_total_amt_usd
 FROM orders
 
+
 Select id,
     account_id,
     DATE_TRUNC('year', occurred_at) as year,
@@ -144,14 +138,13 @@ Select id,
     AVG(total_amt_usd) Over account_year_window as avg_total_amt_usd,
     MIN(total_amt_usd) Over account_year_window as min_total_amt_usd,
     MAX(total_amt_usd) Over account_year_window as max_total_amt_usd
-From orders 
-WINDOW account_year_window AS (
+From orders WINDOW account_year_window AS (
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('year', occurred_at)
-    )
-    
-     --------- Comparing Row to Preview Row - LAG ------------
-    -- LAG function : Returns the value of the previous row to the current row. 
+    ) 
+
+--------- Comparing Row to Preview Row - LAG ------------
+-- LAG function : Returns the value of the previous row to the current row. 
 SELECT account_id,
     standard_sum,
     LAG(standard_sum) OVER(
@@ -171,7 +164,9 @@ FROM (
             SUM(standard_qty) AS standard_sum
         FROM orders
         GROUP BY 1
-    ) sub --- Lead Function : Return the value from the row following the current row in the table.
+    ) sub 
+    
+--- Lead Function : Return the value from the row following the current row in the table.
 SELECT account_id,
     standard_sum,
     LEAD(standard_sum) OVER (
@@ -185,7 +180,9 @@ FROM (
             SUM(standard_qty) AS standard_sum
         FROM orders
         GROUP BY 1
-    ) sub -- When you need to compare the values in adjacent rows or rows that are offset by a certain number, LAG and LEAD come in very handy.
+    ) sub 
+    
+    -- When you need to compare the values in adjacent rows or rows that are offset by a certain number, LAG and LEAD come in very handy.
     --- Imagine you're an analyst at Parch & Posey and you want to determine how the current order's total revenue ("total" meaning from sales of all types of paper) compares to the next order's total revenue.
 SELECT occurred_at,
     total_amt_usd,
@@ -200,12 +197,10 @@ FROM (
             SUM(total_amt_usd) AS total_amt_usd
         FROM orders
         GROUP BY 1
-    ) sub 
-
--- Percentiles: Percentiles help better describe large datasets
-    NTILE(# of buckets) Over (Order by ranking_column) as new_column_name
-
--- Format example
+    ) sub -- Percentiles: Percentiles help better describe large datasets
+    NTILE(
+        # of buckets) Over (Order by ranking_column) as new_column_name
+        -- Format example
         SELECT customer_id,
             composite_score,
             NTILE(100) OVER(
