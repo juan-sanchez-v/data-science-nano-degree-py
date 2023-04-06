@@ -34,6 +34,8 @@ SELECT order_id,
     ) AS average_monthly_price
 FROM amazon_sales_db
 WHERE order_date < '2017-01-01';
+
+
 SELECT id,
     account_id,
     standard_qty,
@@ -62,8 +64,11 @@ SELECT id,
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('month', occurred_at)
     ) AS max_standard_qty
-FROM orders -- The ORDER BY clause is one of two clauses integral to window functions. The ORDER and PARTITION define what is referred to as the “window”
-    -- The ordered subset of data over which calculations are made.
+FROM orders 
+
+-- The ORDER BY clause is one of two clauses integral to window functions. The ORDER and PARTITION define what is referred to as the “window”
+-- The ordered subset of data over which calculations are made.
+
     --------------- Ranking Window Functions ---------------
     Row_number(): -- Distinct #s for each records.
 Select ROW_Number() Over (
@@ -108,7 +113,7 @@ SELECT id,
     SUM(total_amt_usd) OVER (
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('year', occurred_at)
-    ) AS sum_total_amt_usd,`
+    ) AS sum_total_amt_usd,
     COUNT(total_amt_usd) OVER (
         PARTITION BY account_id
         ORDER BY DATE_TRUNC('year', occurred_at)
@@ -197,9 +202,10 @@ FROM (
             SUM(total_amt_usd) AS total_amt_usd
         FROM orders
         GROUP BY 1
-    ) sub -- Percentiles: Percentiles help better describe large datasets
-    NTILE(
-        # of buckets) Over (Order by ranking_column) as new_column_name
+    ) sub 
+    
+    -- Percentiles: Percentiles help better describe large datasets
+    NTILE( # of buckets) Over (Order by ranking_column) as new_column_name
         -- Format example
         SELECT customer_id,
             composite_score,
