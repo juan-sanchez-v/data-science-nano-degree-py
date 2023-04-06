@@ -1,7 +1,13 @@
--- Question # 1:
 /*
-This is a comment
+Betleman Data Science with Python Nano Degree - Project 1
+Author: 	Juan Sanchez
+Date: 		04-05-2023
+
+Question # 1:
+
 */
+
+-- film_details table Joins the film_category and film table to get a list of all the films and their category
 With film_details as (
 		Select f.film_id, f.title, c.name as category
 		From film f
@@ -16,8 +22,7 @@ rental_history as (
 		From rental r
 		Join inventory i
 		On r.inventory_id = i.inventory_id
-		Group by 1
-		Order by i.film_id
+		Group by i.film_id
 )
 Select fd.title, fd.category, rh.rental_count
 From film_details fd
