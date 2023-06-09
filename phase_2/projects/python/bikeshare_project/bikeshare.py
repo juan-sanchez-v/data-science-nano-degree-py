@@ -2,6 +2,12 @@ import time
 import pandas as pd
 import numpy as np
 
+"""
+Project:    Explore Bikeshare Data
+Student:    Juan Sanchez
+Submission: #1
+"""
+
 CITY_DATA = {
     "chicago": "chicago.csv",
     "new york city": "new_york_city.csv",
@@ -287,7 +293,7 @@ def user_stats(df):
 
 
 def get_raw_data(df):
-    """Prints 5 rows of raw data from the dataframe"""
+    """Prints batch of 5 rows of raw data from the dataframe"""
     start = 0
     end = start + 5
     df_size = df.shape[0]
